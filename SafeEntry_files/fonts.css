@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: Poppins-Medium;
-  src: url("../fonts/poppins/Poppins-Medium.otf");
+  src: url("../SafeEntry_files/Poppins-Medium.otf") format('truetype');
 }
 
 @font-face {
