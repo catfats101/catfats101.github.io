@@ -67,7 +67,7 @@ div {
 
 
 
-<div _ngcontent-uny-c1="" class="building-name"><div _ngcontent-uny-c1="" fittext="" style="font-size: 32px;">KANG'S ROOM &#x1F920;</div></div><!----><div _ngcontent-uny-c1=""><img _ngcontent-uny-c1="" id="govtech-logo" src="./SafeEntry checkout_files/govtech-icon.svg"></div></div></div><!----><div _ngcontent-uny-c1="" class="def-text-container"><div _ngcontent-uny-c1="" class="thanks-text">Thank you for keeping Singapore safe!</div><!----><!----><div _ngcontent-uny-c1="" class="screenshot-help-text-out">Screenshot this pass for record as you leave.</div></div></div></div><!----></div></div></app-complete></app-root>
+<div _ngcontent-uny-c1="" class="building-name"><div _ngcontent-uny-c1="" fittext="" style="font-size: 32px;">KANG'S ROOM </div></div><!----><div _ngcontent-uny-c1=""><img _ngcontent-uny-c1="" id="govtech-logo" src="./SafeEntry checkout_files/govtech-icon.svg"></div></div></div><!----><div _ngcontent-uny-c1="" class="def-text-container"><div _ngcontent-uny-c1="" class="thanks-text">Thank you for keeping Singapore safe!</div><!----><!----><div _ngcontent-uny-c1="" class="screenshot-help-text-out">Screenshot this pass for record as you leave.</div></div></div></div><!----></div></div></app-complete></app-root>
 
 
 
@@ -101,12 +101,19 @@ document.getElementById("date").innerHTML = d + " " + month[m] + " " + y;
 <script>
 var dt = new Date();
 var fullstr = dt.toLocaleTimeString();
-var justtime = fullstr.slice(0, 5);
-var amORpm = fullstr.slice(8,11)
+var hours = dt.getHours(); //gives 20 when its 8pm
+var min = dt.getMinutes()
+var ampm = hours >= 12 ? 'PM' : 'AM';
 
-document.getElementById("time").innerHTML = justtime + " " + amORpm;
+
+if (min < 10) {
+  //single digit min
+  min = "0" + min
+}
+
+
+document.getElementById("time").innerHTML = hours -12 + ":" + min + " " + ampm
 </script>
-
 
 
 
