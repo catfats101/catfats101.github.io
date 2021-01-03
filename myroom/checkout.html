@@ -111,6 +111,11 @@ if (min < 10) {
   min = "0" + min
 }
 
+if (hours = 12) {
+  //ghetto fix af lmfao
+  hours = 24
+}
+
 
 document.getElementById("time").innerHTML = hours -12 + ":" + min + " " + ampm
 </script>
