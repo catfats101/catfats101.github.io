@@ -118,7 +118,11 @@ if (min < 10) {
 }
 
 
-document.getElementById("time").innerHTML = hours -12 + ":" + min + " " + ampm
+if (hours > 12) {
+  hours = hours - 12
+}
+
+document.getElementById("time").innerHTML = hours + ":" + min + " " + ampm
 </script>
 
 
