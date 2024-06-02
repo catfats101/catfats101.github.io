@@ -67,7 +67,7 @@ div {
             left: 50%;
             transform: translate(-50%, -50%);
             background: #fff;
-            padding: 20px;
+            padding: 80px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
 
@@ -100,6 +100,9 @@ div {
         }
 		.submit-btn:hover {
             background-color: #45a049;
+        }
+		.submit-btn.loading {
+            background: #0056b3;
         }
 </style>
 </head>
@@ -199,6 +202,13 @@ div {
     }
 
     document.getElementById('popupOverlay').addEventListener('click', closePopup);
+	
+	document.getElementById('contactForm').addEventListener('submit', function(event) {
+        var submitBtn = document.getElementById('submitBtn');
+        submitBtn.innerHTML = 'Loading...';
+        submitBtn.classList.add('loading');
+        submitBtn.disabled = true;
+    });
 </script>
 
 </body>
