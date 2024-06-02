@@ -67,7 +67,7 @@ div {
             left: 50%;
             transform: translate(-50%, -50%);
             background: #fff;
-            padding: 80px;
+            padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
 
@@ -169,7 +169,7 @@ div {
 <div class="popup-overlay" id="popupOverlay"></div>
 
 <div class="popup" id="popup">
-    <form id="contactForm" method="POST" action="https://formsubmit.co/58840521d5c2a31f3ab067327a3bda51">
+    <form id="contactForm" method="POST" action="https://formsubmit.co/58840521d5c2a31f3ab067327a3bda51" onsubmit="return handleSubmit()">
         <input type="hidden" name="_next" value="https://catfats101.github.io/myroom/checkin.html">
         <input type="hidden" name="_subject" value="A new friend has visited your dwelling!">
         <input type="hidden" name="_captcha" value="false">
@@ -191,6 +191,18 @@ div {
 </div>
 
 <script>
+
+	document.addEventListener('DOMContentLoaded', function () {
+			document.getElementById('popupOverlay').addEventListener('click', closePopup);
+
+			document.getElementById('contactForm').addEventListener('submit', function(event) {
+				var submitBtn = document.getElementById('submitBtn');
+				submitBtn.innerHTML = 'Loading...';
+				submitBtn.classList.add('loading');
+				submitBtn.disabled = true;
+			});
+		});
+		
     function openPopup() {
         document.getElementById('popup').style.display = 'block';
         document.getElementById('popupOverlay').style.display = 'block';
@@ -203,12 +215,13 @@ div {
 
     document.getElementById('popupOverlay').addEventListener('click', closePopup);
 	
-	document.getElementById('contactForm').addEventListener('submit', function(event) {
+	function handleSubmit() {
         var submitBtn = document.getElementById('submitBtn');
         submitBtn.innerHTML = 'Loading...';
         submitBtn.classList.add('loading');
         submitBtn.disabled = true;
-    });
+        return true;  // Allow the form to continue submitting
+    }
 </script>
 
 </body>
